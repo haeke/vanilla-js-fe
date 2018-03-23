@@ -337,5 +337,39 @@ function deleteItem(e) {
     }
 }
 
+//local storage - Reference for saving data to the browser
+
+//set local storage item
+localStorage.setItem('name', 'John');
+//get localstorage item
+localStorage.getItem('name');
+//remove localstorage item programatically
+localStorage.removeItem('name');
+
+document.querySelector('form').addEventListener('submit', function(e) {
+    let task = document.getElementById('task').value;
+    console.log(task);
+    //handle creating a list of items
+    let tasks;
+    //check to see if items already exist in local storage
+    if (localStorage.getItem('tasks') === null) {
+        //if it is empty initialize the tasks array
+        tasks = [];
+    } else {
+        //parse the string into an array
+        tasks = JSON.parse(localStorage.getItem('tasks'));
+    }
+    //add the item into the array
+    tasks.push(task);
+
+    //add the tasks array to localStorage
+    //we need to convert the array into a string in order to add to localStorage
+    localStorage.setItem('tasks', JSON.stringifyt(tasks));
+
+    // add to local storage
+    localStorage.setItem('task', task);
+    e.preventDefault();
+})
+
 
 
