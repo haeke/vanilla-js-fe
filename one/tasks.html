@@ -4,39 +4,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <!-- Compiled and minified CSS -->
+    <!-- Materialize and Fontawesome CDN library files -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
-    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/solid.js" integrity="sha384-+Ga2s7YBbhOD6nie0DzrZpJes+b2K1xkpKxTFFcx59QmVPaSA8c7pycsNaFwUK6l" crossorigin="anonymous"></script>
-    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/fontawesome.js" integrity="sha384-7ox8Q2yzO/uWircfojVuCQOZl+ZZBg2D2J5nkpLqzH1HY0C1dHlTKIbpRz/LG23c" crossorigin="anonymous"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+      crossorigin="anonymous">
     <title>Task List</title>
 </head>
 <body>
+    <!-- container start -->
     <div class="container">
+        <!-- row start -->
         <div class="row">
+            <!-- col start -->
             <div class="col s12">
+                <!-- card start main id start -->
                 <div id="main" class="card">
+                    <!-- card content -->
                     <div class="card-content">
+                        <!-- card title -->
                         <span class="card-title">Task List</span>
+                        <!-- row start -->
                         <div class="row">
+                            <!-- form start -->
                             <form action="#" id="task-form">
+                                <!-- input start -->
                                 <div class="input-field col s12">
                                     <input type="text" name="task" id="task" value="Get some food">
                                     <label for="task">New Task</label>
                                 </div>
+                                <!-- submit input -->
                                 <input type="submit" value="Add Task" class="btn">
                             </form>
+                            <!-- form end -->
                         </div>
                         <div class="card-action">
                             <h5 id="task-title">Tasks</h5>
                             <ul class="collection">
                                 <li class="collection-item">
-                                    List Item
+                                    List Item 1
                                     <a href="#" class="delete-item secondary-content">
                                         <i class="fa fa-remove"></i>
                                     </a>
                                 </li>
                                 <li class="collection-item">
-                                    List Item
+                                    List Item 2
+                                    <a href="#" class="delete-item secondary-content">
+                                        <i class="fa fa-remove"></i>
+                                    </a>
+                                </li>
+                                <li class="collection-item">
+                                    List Item 3
                                     <a href="#" class="delete-item secondary-content">
                                         <i class="fa fa-remove"></i>
                                     </a>
