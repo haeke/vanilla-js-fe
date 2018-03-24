@@ -13,10 +13,13 @@ loadEventListeners();
 function loadEventListeners() {
     //add task event
     form.addEventListener('submit', addTask);
+    //add event listener to taskList
+    taskList.addEventListener('click', removeTask);
 }
 
 //to add a task
 function addTask(e) {
+    //check if a user tries to submit an empty form
     if (taskInput.value === '') {
         alert('You need to add a task');
     }
@@ -41,5 +44,14 @@ function addTask(e) {
     //clear the input
     taskInput.value = '';
 
+    e.preventDefault();
+}
+
+//remove a task
+function removeTask(e) {
+    //use e.target to get a reference to what was clicked
+    console.log(e.target.parentElement.parentElement);
+    //remove the element by targeting the parent elements parent element
+    e.target.parentElement.parentElement.remove();
     e.preventDefault();
 }
