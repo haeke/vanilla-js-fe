@@ -35,14 +35,40 @@
                             <input type="submit" class="btn btn-dark btn-block">
                         </div>
                     </form>
+
                     <!-- LOADER TO BE PLACED -->
+                    <!-- <div id="loading">
+                        <img src="img/loading.gid" alt="loading">
+                    </div> -->
+
                     <!-- RESULTS -->
-                    <div class="form-group">
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">Monthly Payment</span>
+                    <div id="results" id="pt-4">
+                        <h5>Results</h5>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Monthly Payment</span>
+                                </div>
+                                <input type="number" class="form-control" id="monthly-payment" disabled>
                             </div>
-                            <input type="number" class="form-control" id="monthly-payment" disabled>
+                        </div>
+                        <!-- For Total Payment -->
+                        <div class="form-group">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Total Payment</span>
+                                </div>
+                                <input type="number" class="form-control" id="total-payment" disabled>
+                            </div>
+                        </div>
+                        <!-- For Total Interest -->
+                        <div class="form-group">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Total Interest</span>
+                                </div>
+                                <input type="number" class="form-control" id="total-interest" disabled>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -51,8 +77,9 @@
     </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="app.js"></script>
   </body>
 </html>
