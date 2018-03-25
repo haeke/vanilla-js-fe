@@ -1,7 +1,15 @@
 
 // Listen for a submit
 
-document.querySelector('#loan-form').addEventListener('submit', calculateResults);
+document.querySelector('#loan-form').addEventListener('submit', function (e) {
+    //hide the results
+    document.getElementById('results').style.display = 'none';
+    //show the loader on load
+    document.getElementById('loading').style.display = 'block';
+    //call calculate results after 2 seconds
+    setTimeout(calculateResults, 2000);
+    e.preventDefault();
+});
 
 // calculate results implementation
 function calculateResults(e) {
@@ -29,10 +37,15 @@ function calculateResults(e) {
         totalPayment.value = (monthly * calculatedPayments).toFixed(2);
         //set the total interest value
         totalInterest.value = ((monthly * calculatedPayments) - principal).toFixed(2);
+        //show the results
+        document.getElementById('results').style.display = 'block';
+        //hide the loading
+        document.getElementById('loading').style.display = 'none';
     } else {
         showError('Please check your numbers.');
+        //hide the loading div
+        document.querySelector('#loading').style.display = 'none';
     }
-    e.preventDefault();
 }
 
 // show error implementation
