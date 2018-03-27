@@ -36,6 +36,27 @@ UI.prototype.addBookToList = function(book) {
     list.appendChild(row);
 }
 
+//display an error message
+UI.prototype.showAlert = function(message, uiclass) {
+   const div = document.createElement('div');
+   //add the class
+   div.className = `alert alert-danger ${uiclass}`;
+   //add the text to be displayed
+   div.appendChild(document.createTextNode(message));
+
+   //get the parent elements
+   const container = document.querySelector('.container');
+   const form = document.querySelector('#book-form');
+
+   //insert the alert element above the form
+   container.insertBefore(div, form);
+
+   //remove the alert element after 3 seconds
+   setTimeout(function() {
+       document.querySelector('.alert').remove();
+   }, 3000);
+}
+
 //event listeners
 let bookForm = document.querySelector('#book-form');
 
@@ -51,8 +72,15 @@ bookForm.addEventListener('submit', function(e) {
 
     //create a UI object
     const ui = new UI();
-    //add book to the UI list
-    ui.addBookToList(book);
+    
+    //validate the input fields
+    if (title === '' || author === '' || isbn === '') {
+        //generate an alert
+        ui.showAlert('Please fill in all fields.', 'error');
+    } else {
+        //add book to the UI list
+        ui.addBookToList(book);
+    }
     //clear the UIfields
     ui.clearFields(title, author, isbn);
     //don't refresh on submit
