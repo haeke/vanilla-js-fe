@@ -15,43 +15,45 @@
           <!-- Form section -->
           <form action="#" id="book-form">
             <div class="row">
-                <div class="title col-md-6">
+                <div class="title col-md-8">
                     <label for="title">Title</label>
                     <input type="text" id="title" class="form-control">
                 </div>
             </div>
             <div class="row">
-                <div class="author col-md-6">
+                <div class="author col-md-8">
                     <label for="title">Author</label>
                     <input type="text" id="author" class="form-control">
                 </div>
             </div>
             <div class="row">
-                <div class="isbn col-md-6">
-                    <label for="ISBN">ISBN</label>
-                    <input type="text" id="ISBN" class="form-control">
+                <div class="isbn col-md-8">
+                    <label for="isbn">ISBN</label>
+                    <input type="text" id="isbn" class="form-control">
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-6 mt-3">
+                <div class="col-md-8 mt-3">
                     <input type="submit" value="Submit" class="btn btn-primary btn-block">
                 </div>
             </div>
           </form>
           <!-- end form -->
-          <table class="u-full-width">
-              <thead>
-                  <tr>
-                      <th>Title</th>
-                      <th>Author</th>
-                      <th>ISBN</th>
-                      <th></th>
-                  </tr>
-              </thead>
-              <tbody id="book-list">
-
-              </tbody>
-          </table>
+          <div class="row">
+              <div class="col-md-8 mt-3">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Title</th>
+                                <th>Author</th>
+                                <th>ISBN</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody id="book-list"></tbody>
+                    </table>
+              </div>
+          </div>
       </div>
     <script src="app.js"></script>
     <!-- Optional JavaScript -->
