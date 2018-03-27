@@ -40,7 +40,7 @@ UI.prototype.addBookToList = function(book) {
 UI.prototype.showAlert = function(message, uiclass) {
    const div = document.createElement('div');
    //add the class
-   div.className = `alert alert-danger ${uiclass}`;
+   div.className = `alert ${uiclass} col-md-8`;
    //add the text to be displayed
    div.appendChild(document.createTextNode(message));
 
@@ -57,9 +57,18 @@ UI.prototype.showAlert = function(message, uiclass) {
    }, 3000);
 }
 
+//delete book implementation
+UI.prototype.deleteBook = function (target) {
+    if (target.className === 'delete') {
+        //remove the parent elements parent element
+        target.parentElement.parentElement.remove();
+    }
+}
+
 //event listeners
 let bookForm = document.querySelector('#book-form');
 
+//add book to the booklist
 bookForm.addEventListener('submit', function(e) {
     console.log('book form submitted');
 
@@ -76,13 +85,28 @@ bookForm.addEventListener('submit', function(e) {
     //validate the input fields
     if (title === '' || author === '' || isbn === '') {
         //generate an alert
-        ui.showAlert('Please fill in all fields.', 'error');
+        ui.showAlert('Please fill in all fields.', 'alert-danger error');
     } else {
         //add book to the UI list
         ui.addBookToList(book);
+        //show alert for successful book added
+        ui.showAlert('Book added to the list.', 'alert-success success');
     }
     //clear the UIfields
     ui.clearFields(title, author, isbn);
     //don't refresh on submit
+    e.preventDefault();
+});
+
+//select the book-list element
+const bookList = document.querySelector('#book-list');
+//event listener for deleting a book
+bookList.addEventListener('click', function(e) {
+    //create a ui element
+    const ui = new UI();
+    //call the delete method on the UI object
+    ui.deleteBook(e.target);
+    //show alert
+    ui.showAlert('Book removed', 'alert-success success');
     e.preventDefault();
 });
