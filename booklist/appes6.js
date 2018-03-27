@@ -59,6 +59,60 @@ class UI {
     }
 }
 
+//Local storage implementation
+class Store {
+    static getBooks() {
+        //look inside local storage 
+        let books;
+        if (localStorage.getItem('books') === null) {
+            //doesn't exist
+            books = [];
+        } else {
+           books = JSON.parse(localStorage.getItem('books'));
+        }
+
+        return books;
+    }
+
+    static displayBooks() {
+       //get the books from local storage
+       const books = Store.getBooks();
+
+       //iterate through
+       books.forEach(function(book) {
+           const ui = new UI();
+           //add book to the UI
+           ui.addBookToList(book);
+       });
+    }
+
+    static addBook(book) {
+        //get the book from local storage
+        const books = Store.getBooks();
+        //add the book to the books array
+        books.push(book);
+        //set the new books to the books item in local storage
+        localStorage.setItem('books', JSON.stringify(books));
+    }
+
+    static removeBook(isbn) {
+        console.log(isbn);
+        //remove the book from local storage based on the isbn
+        const books = Store.getBooks();
+        books.forEach(function(book, index) {
+            if (book.isbn === isbn) {
+                books.splice(index, 1);
+            }
+        });
+
+        //set the local storage again
+        localStorage.setItem('books', JSON.stringify(books));
+    }
+}
+
+//load when the DOM loads
+document.addEventListener('DOMContentLoaded', Store.displayBooks);
+
 //event listeners
 let bookForm = document.querySelector('#book-form');
 
@@ -83,6 +137,8 @@ bookForm.addEventListener('submit', function(e) {
     } else {
         //add book to the UI list
         ui.addBookToList(book);
+        //add to store
+        Store.addBook(book);
         //show alert for successful book added
         ui.showAlert('Book added to the list.', 'alert-success success');
     }
@@ -100,6 +156,10 @@ bookList.addEventListener('click', function(e) {
     const ui = new UI();
     //call the delete method on the UI object
     ui.deleteBook(e.target);
+
+    //remove from local storage
+    //grab the isbn number
+    Store.removeBook(e.target.parentElement.previousElementSibling.textContent);
     //show alert
     ui.showAlert('Book removed', 'alert-success success');
     e.preventDefault();
