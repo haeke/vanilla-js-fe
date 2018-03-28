@@ -35,3 +35,31 @@ resHTTP.prototype.post = function(url, data, callback) {
 }
 
 //HTTP put implementation
+resHTTP.prototype.put = function(url, data, callback) {
+    //create a put request
+    this.http.open('PUT', url, true);
+    //set the content type
+    this.http.setRequestHeader('Content-type', 'application/json');
+    //call on load
+    this.http.onload = function() {
+        callback(null, this.http.responseText);
+    }.bind(this);
+
+    this.http.send(JSON.stringify(data));
+};
+
+//HTTP get implementation
+resHTTP.prototype.delete = function(url, callback) {
+    //create a delete request
+    this.http.open('DELETE', url, true);
+    this.http.onload = function() {
+        //check the status
+        if (this.http.status === 200) {
+            callback(null, 'The post has been deleted');
+        } else {
+            callback('Error: ', this.http.status);
+        }
+    }.bind(this);
+
+    this.http.send();
+}
