@@ -21,5 +21,17 @@ resHTTP.prototype.get = function(url, callback) {
     this.http.send();
 }
 //HTTP post implementation
+resHTTP.prototype.post = function(url, data, callback) {
+    //create a post request
+    this.http.open('POST', url, true);
+    //set the content type
+    this.http.setRequestHeader('Content-type', 'application/json');
+    //call onload
+    this.http.onload = function() {
+        callback(null, this.http.responseText);
+    }.bind(this);
+
+    this.http.send(JSON.stringify(data));
+}
 
 //HTTP put implementation
