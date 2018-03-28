@@ -65,6 +65,9 @@ UI.prototype.deleteBook = function (target) {
     }
 }
 
+//local storage implementation
+UI.prototype.l
+
 //event listeners
 let bookForm = document.querySelector('#book-form');
 
