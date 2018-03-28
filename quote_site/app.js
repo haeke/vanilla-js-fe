@@ -14,7 +14,6 @@ function getJokes(e) {
     //use xmlhttprequest
     const xhr = new XMLHttpRequest();
     if (number > 0) {
-        console.log(number);
         //make a get request to the api
         xhr.open('GET', `http://api.icndb.com/jokes/random/${number}`, true);
         //if the request was successful - log it to the console for now
